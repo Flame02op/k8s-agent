@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "k8s-agent"
+version = "1.0.0"
+description = "A specialized Kubernetes debugging agent powered by GitHub Copilot CLI"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "K8s Agent Team" },
+]
+dependencies = [
+    "typer>=0.12.0",
+    "rich>=13.7.0",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+k8s-agent = "k8s_agent.cli.main:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/k8s_agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

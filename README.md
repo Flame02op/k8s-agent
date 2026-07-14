@@ -2,6 +2,8 @@
 
 A specialized Kubernetes debugging agent powered by **GitHub Copilot CLI**. It diagnoses failing workloads, traces networking issues, provides detailed Root Cause Analysis (RCA), and can execute remediation steps upon confirmation.
 
+![K8s Agent Banner](k8s-agent.jpg)
+
 ## Features
 
 - **Workload Debugging**: Automatically diagnoses failing Pods, Deployments, StatefulSets, DaemonSets, and Jobs.
